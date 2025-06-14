@@ -1,3 +1,14 @@
+// ==UserScript==
+// @name         New Userscript
+// @namespace    http://tampermonkey.net/
+// @version      2025-06-14
+// @description  try to take over the world!
+// @author       You
+// @match        https://tr.agar.live/
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=agar.live
+// @grant        none
+// ==/UserScript==
+
 var Vector2 = function (t, n) {
     this.x = t || 0;
     this.y = n || 0;
@@ -982,7 +993,7 @@ function getScript(_0x42a925, _0x70692a) {
                 chatMessages[_0xca1f20].msg_h = chatMessages[_0xca1f20].name_h;
                 ctx.fillStyle = chatMessages[_0xca1f20].color;
                 ctx.fillText(_0x3c9f40, chatMessages[_0xca1f20].name_x, chatMessages[_0xca1f20].name_y);
-                _0x3dd4f9 == true ? ctx.fillStyle = '#FFFFFF' : ctx.fillStyle = '#000000';
+                _0x3dd4f9 == true ? ctx.fillStyle = '#999999' : ctx.fillStyle = '#999999';
                 ctx.fillText(_0x5b895a, chatMessages[_0xca1f20].msg_x, chatMessages[_0xca1f20].msg_y);
             }
         }
@@ -1561,119 +1572,6 @@ function getScript(_0x42a925, _0x70692a) {
     Date.now || (Date.now = function () {
         return new Date().getTime();
     });
-    var _0x20b5b2 = {
-        'init': function (_0x5931e6) {
-            ;
-            function _0x5e75e8(_0xee2023, _0x3013f9, _0x2cb63c, _0x324224, _0x465f75) {
-                ;
-                this.x = _0xee2023;
-                this.y = _0x3013f9;
-                this.w = _0x2cb63c;
-                this.h = _0x324224;
-                this.depth = _0x465f75;
-                this.items = [];
-                this.nodes = [];
-            }
-            var _0x45d4da = _0x5931e6.maxChildren || 2, _0x8fedd0 = _0x5931e6.maxDepth || 4;
-            _0x5e75e8.prototype = {
-                'x': 0,
-                'y': 0,
-                'w': 0,
-                'h': 0,
-                'depth': 0,
-                'items': null,
-                'nodes': null,
-                'exists': function (_0x529551) {
-                    ;
-                    for (var _0x27862d = 0; _0x27862d < this.items.length; ++_0x27862d) {
-                        var _0x1e85d4 = this.items[_0x27862d];
-                        if (_0x1e85d4.x >= _0x529551.x && _0x1e85d4.y >= _0x529551.y && _0x1e85d4.x < _0x529551.x + _0x529551.w && _0x1e85d4.y < _0x529551.y + _0x529551.h) {
-                            return true;
-                        }
-                    }
-                    if (0 != this.nodes.length) {
-                        var _0x493000 = this;
-                        return this.findOverlappingNodes(_0x529551, function (_0x103c96) {
-                            ;
-                            return _0x493000.nodes[_0x103c96].exists(_0x529551);
-                        });
-                    }
-                    return false;
-                },
-                'retrieve': function (_0xe33dbc, _0x580ac5) {
-                    ;
-                    for (var _0x21a194 = 0; _0x21a194 < this.items.length; ++_0x21a194) {
-                        _0x580ac5(this.items[_0x21a194]);
-                    }
-                    if (0 != this.nodes.length) {
-                        var _0x1d761c = this;
-                        this.findOverlappingNodes(_0xe33dbc, function (_0x3bf8d1) {
-                            ;
-                            _0x1d761c.nodes[_0x3bf8d1].retrieve(_0xe33dbc, _0x580ac5);
-                        });
-                    }
-                },
-                'insert': function (_0x202507) {
-                    ;
-                    0 != this.nodes.length ? this.nodes[this.findInsertNode(_0x202507)].insert(_0x202507) : this.items.length >= _0x45d4da && this.depth < _0x8fedd0 ? (this.devide(), this.nodes[this.findInsertNode(_0x202507)].insert(_0x202507)) : this.items.push(_0x202507);
-                },
-                'findInsertNode': function (_0x56147d) {
-                    return _0x56147d.x < this.x + this.w / 2 ? _0x56147d.y < this.y + this.h / 2 ? 0 : 2 : _0x56147d.y < this.y + this.h / 2 ? 1 : 3;
-                },
-                'findOverlappingNodes': function (_0x3ea116, _0x20ac17) {
-                    return _0x3ea116.x < this.x + this.w / 2 && (_0x3ea116.y < this.y + this.h / 2 && _0x20ac17(0) || _0x3ea116.y >= this.y + this.h / 2 && _0x20ac17(2)) || _0x3ea116.x >= this.x + this.w / 2 && (_0x3ea116.y < this.y + this.h / 2 && _0x20ac17(1) || _0x3ea116.y >= this.y + this.h / 2 && _0x20ac17(3)) ? true : false;
-                },
-                'devide': function () {
-                    var _0x3af3d1 = this.depth + 1, _0x217b28 = this.w / 2, _0x41ac18 = this.h / 2;
-                    this.nodes.push(new _0x5e75e8(this.x, this.y, _0x217b28, _0x41ac18, _0x3af3d1));
-                    this.nodes.push(new _0x5e75e8(this.x + _0x217b28, this.y, _0x217b28, _0x41ac18, _0x3af3d1));
-                    this.nodes.push(new _0x5e75e8(this.x, this.y + _0x41ac18, _0x217b28, _0x41ac18, _0x3af3d1));
-                    this.nodes.push(new _0x5e75e8(this.x + _0x217b28, this.y + _0x41ac18, _0x217b28, _0x41ac18, _0x3af3d1));
-                    _0x3af3d1 = this.items;
-                    this.items = [];
-                    for (_0x217b28 = 0; _0x217b28 < _0x3af3d1.length; _0x217b28++) {
-                        this.insert(_0x3af3d1[_0x217b28]);
-                    }
-                },
-                'clear': function () {
-                    ;
-                    for (var _0x529980 = 0; _0x529980 < this.nodes.length; _0x529980++) {
-                        this.nodes[_0x529980].clear();
-                    }
-                    this.items.length = 0;
-                    this.nodes.length = 0;
-                }
-            };
-            ;
-            return {
-                'root': new _0x5e75e8(_0x5931e6.minX, _0x5931e6.minY, _0x5931e6.maxX - _0x5931e6.minX, _0x5931e6.maxY - _0x5931e6.minY, 0),
-                'insert': function (_0x123ea4) {
-                    ;
-                    this.root.insert(_0x123ea4);
-                },
-                'retrieve': function (_0x4c45dc, _0x12c013) {
-                    ;
-                    this.root.retrieve(_0x4c45dc, _0x12c013);
-                },
-                'retrieve2': function (_0x3095d1, _0x5ecf4f, _0x21e48b, _0x2e259e, _0x41dacd) {
-                    ;
-                    0 = _0x3095d1;
-                    0 = _0x5ecf4f;
-                    0 = _0x21e48b;
-                    0 = _0x2e259e;
-                    this.root.retrieve(_0x4941e7, _0x41dacd);
-                },
-                'exists': function (_0x28f107) {
-                    ;
-                    return this.root.exists(_0x28f107);
-                },
-                'clear': function () {
-                    ;
-                    this.root.clear();
-                }
-            };
-        }
-    };
     handleWindow.onload = _0xb219e3;
 }(window, window.jQuery));
 (function () {
